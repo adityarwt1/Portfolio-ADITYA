@@ -5,6 +5,7 @@ import InterViews from "./InterViews";
 
 const QuickInfoCards = () => {
   const [visitors, setVisitors] = useState<number>(0);
+  const [interviewes, setInterviews] = useState<number>(0);
 
   useEffect(() => {
     const getVisitors = async () => {
@@ -17,17 +18,26 @@ const QuickInfoCards = () => {
       }
     };
 
+    const getInterview = async () => {
+      try {
+        const res = await fetch("/api/v1/getInterviewCount");
+        const data = await res.json();
+        setInterviews(data.interviewes);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     const saveVisitor = () => {
       navigator.geolocation.getCurrentPosition(
         async (pos) => {
-          const latitude = pos.coords.latitude;
-          const longitude = pos.coords.longitude;
-          
+          const { latitude, longitude } = pos.coords;
+
           const webResponse = await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
           );
-
           const dataweb = await webResponse.json();
+
           try {
             const res = await fetch("/api/v1/addVisitor", {
               method: "POST",
@@ -41,6 +51,7 @@ const QuickInfoCards = () => {
             });
 
             const data = await res.json();
+
             if (data.success) {
               setVisitors((prev) => prev + 1);
               localStorage.setItem(
@@ -52,24 +63,28 @@ const QuickInfoCards = () => {
             console.log(err);
           }
         },
-        (err) => {
-          console.log("Location error:", err);
-        }
+        (err) => console.log("Location error:", err)
       );
     };
 
-    getVisitors();
+    const init = async () => {
+      await getVisitors(); // Step 1
+      await getInterview(); // Step 2
 
-    const saved = localStorage.getItem("savedVisit");
-    if (!saved) {
-      saveVisitor();
-    }
+      const saved = localStorage.getItem("savedVisit");
+
+      if (!saved) {
+        saveVisitor(); // Step 3
+      }
+    };
+
+    init();
   }, []);
 
   return (
     <div className="flex gap-2">
-      <Visitor visitors={visitors}/>
-      <InterViews/>
+      <Visitor visitors={visitors} />
+      <InterViews interviewes={interviewes} />
     </div>
   );
 };

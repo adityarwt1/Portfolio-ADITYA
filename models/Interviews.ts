@@ -6,6 +6,8 @@ interface InterviewInteface{
     round:number
     askedDsa:boolean
     screeningRound:boolean
+    active:boolean
+    joinedDate:Date
 }
 
 const InterViewSchema:Schema<InterviewInteface> = new Schema({
@@ -21,6 +23,13 @@ const InterViewSchema:Schema<InterviewInteface> = new Schema({
     screeningRound:{
         type:Boolean
     },
+    active:{
+        type:Boolean
+    },
+    joinedDate:{
+        type:Date
+    }
+
 
 },{timestamps:true})
 
