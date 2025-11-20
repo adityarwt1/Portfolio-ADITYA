@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Visitor from "./Visitor";
 
-const TotalVisits = () => {
+const QuickInfoCards = () => {
   const [visitors, setVisitors] = useState<number>(0);
 
   useEffect(() => {
@@ -65,10 +66,10 @@ const TotalVisits = () => {
   }, []);
 
   return (
-    <div className="border w-fit py-1 px-2 rounded-full bg-[#e0e0e0]/95 text-black font-mono">
-      TotalVisitor: {visitors}
+    <div className="flex">
+      <Visitor visitors={visitors}/>
     </div>
   );
 };
 
-export default TotalVisits;
+export default QuickInfoCards;
