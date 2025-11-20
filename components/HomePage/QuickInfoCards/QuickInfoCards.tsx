@@ -2,10 +2,17 @@
 import React, { useEffect, useState } from "react";
 import Visitor from "./Visitor";
 import InterViews from "./InterViews";
+import { getCurrentCompany } from "@/services/HomePage/quickInfoCards/getCurrentComapany";
+import CurrentCompany from "./CurrentCompany";
 
+interface CurrentCompany {
+    success: boolean;
+    company: { _id: string; companyName: string; joinedDate: number }
+}
 const QuickInfoCards = () => {
   const [visitors, setVisitors] = useState<number>(0);
   const [interviewes, setInterviews] = useState<number>(0);
+  const [currentCompany, setCurrentComapany] = useState<CurrentCompany>();
 
   useEffect(() => {
     const getVisitors = async () => {
@@ -18,8 +25,10 @@ const QuickInfoCards = () => {
       }
     };
 
+    
     const getInterview = async () => {
       try {
+
         const res = await fetch("/api/v1/getInterviewCount");
         const data = await res.json();
         setInterviews(data.interviewes);
@@ -68,9 +77,12 @@ const QuickInfoCards = () => {
     };
 
     const init = async () => {
+      
       await getVisitors(); // Step 1
       await getInterview(); // Step 2
 
+      const currentCompany = await getCurrentCompany()
+      setCurrentComapany(currentCompany)
       const saved = localStorage.getItem("savedVisit");
 
       if (!saved) {
@@ -85,6 +97,15 @@ const QuickInfoCards = () => {
     <div className="flex gap-2">
       <Visitor visitors={visitors} />
       <InterViews interviewes={interviewes} />
+      
+      {/** current company infor */}
+      {currentCompany?.company && (
+        <CurrentCompany
+          key={currentCompany.company._id}
+          company={currentCompany.company}
+          success={currentCompany.success}
+        />
+      )}
     </div>
   );
 };

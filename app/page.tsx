@@ -1,4 +1,4 @@
-import QuickInfoCards from '@/components/HomePage/QuickInfoCards';
+import QuickInfoCards from '@/components/HomePage/QuickInfoCards/QuickInfoCards';
 import React from 'react'
 
 const HomePage = () => {
