@@ -23,7 +23,7 @@ export async function  POST(req:NextRequest) {
         if(!isPassswordTrue){
             return NextResponse.json({error:"Wrong password."},{status:400})
         }
-
+        
         const tokenPayLoad = {
             role: "admin"
         }
