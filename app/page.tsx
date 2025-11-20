@@ -4,8 +4,7 @@ import React from 'react'
 const HomePage = () => {
   return (
     <div className="w-full h-screen p-5">
-  <QuickInfoCards/>      
-      
+     <QuickInfoCards/>      
     </div>
   );
 }
