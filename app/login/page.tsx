@@ -31,7 +31,8 @@ const LogiPage:React.FC = ()=>{
             const data = await response.json()
 
             if(data.success){
-                router.replace('/')
+              router.refresh()
+                router.replace('/admin')
             }
             else if(data.error){
                 setError(data.error)
