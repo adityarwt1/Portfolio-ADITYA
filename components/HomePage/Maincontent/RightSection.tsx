@@ -1,6 +1,6 @@
 import React from "react";
 import LeetCode from "./LeetCode/Leetcode";
-import LinkedIn from "./LinkedIn/LinkedIn";
+// import LinkedIn from "./LinkedIn/LinkedIn";
 import GitHub from "./GitHub/GitHub";
 
 const RightSection = () => {
