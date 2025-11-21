@@ -4,20 +4,41 @@ import Visitor from "./Visitor";
 import InterViews from "./InterViews";
 import { getCurrentCompany } from "@/services/HomePage/quickInfoCards/getCurrentComapany";
 import CurrentCompany from "./CurrentCompany";
+import Leetcode from "./Leetcode";
 
 interface CurrentCompany {
     success: boolean;
     company: { _id: string; companyName: string; joinedDate: number }
 }
+
+interface LeetCodeInterface{
+  easy:number
+  medium:number
+  hard:number
+}
 const QuickInfoCards = () => {
   const [visitors, setVisitors] = useState<number>(0);
   const [interviewes, setInterviews] = useState<number>(0);
-  const [currentCompany, setCurrentComapany] = useState<CurrentCompany>();
+  const [currentCompany, setCurrentComapany] = useState<CurrentCompany>({
+    success: true,
+    company: {
+      _id: "1234567899",
+      companyName: "TripxPay",
+      joinedDate: 1747506600000,
+    },
+  });
+  const [leetcode , setLeetcode] = useState<LeetCodeInterface>({
+    easy:0,
+    medium:0,
+    hard:0
+  })
 
   useEffect(() => {
     const getVisitors = async () => {
       try {
-        const res = await fetch("/api/v1/getVisitorsCount");
+        const res = await fetch("/api/v1/getVisitorsCount",{
+          next:{revalidate:3600}
+        });
         const data = await res.json();
         setVisitors(data.visitors);
       } catch (err) {
@@ -29,7 +50,9 @@ const QuickInfoCards = () => {
     const getInterview = async () => {
       try {
 
-        const res = await fetch("/api/v1/getInterviewCount");
+        const res = await fetch("/api/v1/getInterviewCount" ,{
+          next:{revalidate:3600}
+        });
         const data = await res.json();
         setInterviews(data.interviewes);
       } catch (error) {
@@ -49,6 +72,7 @@ const QuickInfoCards = () => {
 
           try {
             const res = await fetch("/api/v1/addVisitor", {
+              next:{revalidate:3600},
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -83,12 +107,27 @@ const QuickInfoCards = () => {
       } catch  {}
     }
 
+    const leetcode = async ()=>{
+      try {
+          const response = await fetch("/api/v1/leetCode",{
+            next:{revalidate: 3600 },
+            method:"GET"
+          })
+          const data = await response.json()
+          if(data.leetcode){
+            setLeetcode(data.leetcode)
+          }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
     const init = async () => {
       
       await getVisitors(); // Step 1
       await getInterview(); // Step 2
       await fetchCurrentCompany()
-      
+      await leetcode()
       const saved = localStorage.getItem("savedVisit");
 
       if (!saved) {
@@ -112,6 +151,7 @@ const QuickInfoCards = () => {
           success={currentCompany.success}
         />
       )}
+      <Leetcode {...leetcode} />
     </div>
   );
 };
