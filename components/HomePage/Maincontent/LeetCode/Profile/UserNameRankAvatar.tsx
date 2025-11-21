@@ -21,7 +21,7 @@ const UserNameRankAvatar = () => {
           </div>
         </div>
         <div className="text-gray-400 flex-nowrap">
-          Rank <div className='text-white'>1,092,364</div>
+          Rank: <div className='text-white'>1,092,364</div>
         </div>
       </div>
     </div>
