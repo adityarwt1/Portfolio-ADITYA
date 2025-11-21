@@ -3,7 +3,7 @@ import LeftSection from './LeftSection';
 import RightSection from './RightSection';
 
 const Mainconte = () => {
-  return <div className="bg-red-500 flex">
+  return <div className="flex my-2 font-mono h-full" >
     <LeftSection/>
     <RightSection/>
   </div>;

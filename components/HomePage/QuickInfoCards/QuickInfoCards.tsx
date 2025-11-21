@@ -6,7 +6,7 @@ import { getCurrentCompany } from "@/services/HomePage/quickInfoCards/getCurrent
 import CurrentCompany from "./CurrentCompany";
 import Leetcode from "./Leetcode";
 import CurrentStack from "./CurrentStack";
-import Expert from "./Expert";
+import Expert from "./Experienced";
 
 interface CurrentCompany {
     success: boolean;
@@ -155,7 +155,7 @@ const QuickInfoCards = () => {
         )}
       <Leetcode {...leetcode} />
       <CurrentStack/>
-      <Expert/>
+      <Expert />
     </div>
   );
 };
