@@ -5,6 +5,7 @@ import InterViews from "./InterViews";
 import { getCurrentCompany } from "@/services/HomePage/quickInfoCards/getCurrentComapany";
 import CurrentCompany from "./CurrentCompany";
 import Leetcode from "./Leetcode";
+import CurrentStack from "./CurrentStack";
 
 interface CurrentCompany {
     success: boolean;
@@ -150,8 +151,9 @@ const QuickInfoCards = () => {
           company={currentCompany.company}
           success={currentCompany.success}
         />
-      )}
+        )}
       <Leetcode {...leetcode} />
+      <CurrentStack/>
     </div>
   );
 };
