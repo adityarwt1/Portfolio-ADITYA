@@ -7,6 +7,7 @@ import CurrentCompany from "./CurrentCompany";
 import Leetcode from "./Leetcode";
 import CurrentStack from "./CurrentStack";
 import Expert from "./Experienced";
+import { LeetCodeInfo } from "@/contexts/LeetCodeInfo";
 
 interface CurrentCompany {
     success: boolean;
@@ -109,27 +110,12 @@ const QuickInfoCards = () => {
       } catch  {}
     }
 
-    const leetcode = async ()=>{
-      try {
-          const response = await fetch("/api/v1/leetCode",{
-            next:{revalidate: 3600 },
-            method:"GET"
-          })
-          const data = await response.json()
-          if(data.leetcode){
-            setLeetcode(data.leetcode)
-          }
-      } catch (error) {
-        console.log(error)
-      }
-    }
 
     const init = async () => {
       
       await getVisitors(); // Step 1
       await getInterview(); // Step 2
       await fetchCurrentCompany()
-      await leetcode()
       const saved = localStorage.getItem("savedVisit");
 
       if (!saved) {
@@ -144,7 +130,7 @@ const QuickInfoCards = () => {
     <div className="flex gap-2 wrap-break-word">
       <Visitor visitors={visitors} />
       <InterViews interviewes={interviewes} />
-      
+
       {/** current company infor */}
       {currentCompany?.company && (
         <CurrentCompany
@@ -152,9 +138,11 @@ const QuickInfoCards = () => {
           company={currentCompany.company}
           success={currentCompany.success}
         />
-        )}
-      <Leetcode {...leetcode} />
-      <CurrentStack/>
+      )}
+      <LeetCodeInfo>
+        <Leetcode />
+      </LeetCodeInfo>
+      <CurrentStack />
       <Expert />
     </div>
   );

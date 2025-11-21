@@ -1,34 +1,34 @@
-"use client"
-import { useLeetCode } from '@/contexts/LeetCodeInfo';
-import Image from 'next/image';
-import React from 'react'
+"use client";
+import { useLeetCode } from "@/contexts/LeetCodeInfo";
+import Image from "next/image";
+import React from "react";
 
 const UserNameRankAvatar = () => {
-  const leetcode  = useLeetCode()
+  const leetcode = useLeetCode();
+
   return (
-    <div className="flex gap-2 w-full flex-nowrap">
+    <div className="flex gap-3 w-full">
       <Image
         src="/images/leetcode.jpg"
         alt="LeetCode Logo"
-        width={100}
-        height={100}
+        width={80}
+        height={80}
         className="rounded-lg"
       />
-      <div className="w-full flex flex-col">
+
+      <div className="flex flex-col w-full">
         <div>
-          <div className="font font-sans font-[Arial, Helvetica, sans-serif] ">
-            aditya_rwt1
-          </div>
-          <div className="font font-sans text-gray-400 font-[Arial, Helvetica, sans-serif] text-[10px]">
-            pb5yPFBgiu
-          </div>
+          <div className="font-semibold text-lg">aditya_rwt1</div>
+          <div className="text-gray-400 text-[12px]">pb5yPFBgiu</div>
         </div>
-        <div className="text-gray-400 flex-nowrap">
-          Rank: <div className='text-white'>{leetcode.rank.toLocaleString()}</div>
+
+        <div className="text-gray-400 text-sm flex gap-1">
+          Rank:
+          <span className="text-white">{leetcode.rank.toLocaleString()}</span>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default UserNameRankAvatar
+export default UserNameRankAvatar;

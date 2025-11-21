@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import BnnerAndLogo from "./BannerLogo";
 
 const LinkedIn = () => {
-  return (
-    <div>
-      Linked
-    </div>
-  )
-}
+  return <BnnerAndLogo />;
+};
 
-export default LinkedIn
+export default LinkedIn;
