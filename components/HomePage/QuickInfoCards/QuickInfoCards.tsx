@@ -6,6 +6,7 @@ import { getCurrentCompany } from "@/services/HomePage/quickInfoCards/getCurrent
 import CurrentCompany from "./CurrentCompany";
 import Leetcode from "./Leetcode";
 import CurrentStack from "./CurrentStack";
+import Expert from "./Expert";
 
 interface CurrentCompany {
     success: boolean;
@@ -140,7 +141,7 @@ const QuickInfoCards = () => {
   }, []);
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 wrap-break-word">
       <Visitor visitors={visitors} />
       <InterViews interviewes={interviewes} />
       
@@ -154,6 +155,7 @@ const QuickInfoCards = () => {
         )}
       <Leetcode {...leetcode} />
       <CurrentStack/>
+      <Expert/>
     </div>
   );
 };
