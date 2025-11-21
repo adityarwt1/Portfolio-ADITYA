@@ -1,27 +1,17 @@
 import React from "react";
 import ProfileandSolvedInlanguage from "./ProfileandSolvedInlanguage";
+import ProblemBatchStreak from "./ProblemBatchStreak";
+import { LeetCodeInfo } from "@/contexts/LeetCodeInfo";
 
 const LeetCode = ()=>{
     return (
+      <LeetCodeInfo>
         <div className="flex gap-2 w-full ">
-            <ProfileandSolvedInlanguage/>
-
-                <div className="flex flex-col">
-                    <div className="flex ">
-                            <div>
-                                problem name
-                            </div>
-                            <div>
-                                batch name
-                            </div>
-                    </div>
-
-                    <div>
-                        streak
-                    </div>
-                </div>
+          <ProfileandSolvedInlanguage />
+          <ProblemBatchStreak />
         </div>
-    )
+      </LeetCodeInfo>
+    );
 }
 
 export default LeetCode;
