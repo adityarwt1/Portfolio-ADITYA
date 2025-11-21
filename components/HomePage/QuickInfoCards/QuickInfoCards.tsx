@@ -76,13 +76,19 @@ const QuickInfoCards = () => {
       );
     };
 
+    const fetchCurrentCompany = async ()=>{
+      try {
+        const currentCompany = await getCurrentCompany();
+        setCurrentComapany(currentCompany);
+      } catch  {}
+    }
+
     const init = async () => {
       
       await getVisitors(); // Step 1
       await getInterview(); // Step 2
-
-      const currentCompany = await getCurrentCompany()
-      setCurrentComapany(currentCompany)
+      await fetchCurrentCompany()
+      
       const saved = localStorage.getItem("savedVisit");
 
       if (!saved) {

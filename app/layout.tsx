@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { checkAdmin } from "@/services/authCheck";
 import NavaBar from "@/components/Nav/Navabar";
 
 const geistSans = Geist({
@@ -27,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
       >
         <NavaBar />
-        {children}
+        <div className="h-[90%]">{children}</div>
       </body>
     </html>
   );
