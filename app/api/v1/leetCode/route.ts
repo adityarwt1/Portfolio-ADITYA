@@ -1,6 +1,6 @@
 import { mongoconnect } from "@/lib/mongodb";
 import LeetCode from "@/models/Leetcode";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 
 export async function GET() {
     try {
