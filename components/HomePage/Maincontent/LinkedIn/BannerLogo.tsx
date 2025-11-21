@@ -36,7 +36,6 @@ const BannerLogo = () => {
       </div>
 
       <div className="h-12"></div>
-      <div>adsfasdfasdf</div>
     </div>
   );
 };
