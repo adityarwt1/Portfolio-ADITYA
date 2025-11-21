@@ -4,7 +4,7 @@ import Streak from './ProblemBatchStreak/Streak';
 
 const ProblemBatchStreak = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-1">
         <ProblemsBatch/>
         <Streak/>
     </div>

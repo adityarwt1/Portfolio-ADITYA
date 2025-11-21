@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import UserNameRankAvatar from './Profile/UserNameRankAvatar';
 import LanguageAndSolved from './Profile/LanguageAndSolved';

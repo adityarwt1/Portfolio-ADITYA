@@ -1,7 +1,10 @@
+"use client"
+import { useLeetCode } from '@/contexts/LeetCodeInfo';
 import Image from 'next/image';
 import React from 'react'
 
 const UserNameRankAvatar = () => {
+  const leetcode  = useLeetCode()
   return (
     <div className="flex gap-2 w-full flex-nowrap">
       <Image
@@ -21,7 +24,7 @@ const UserNameRankAvatar = () => {
           </div>
         </div>
         <div className="text-gray-400 flex-nowrap">
-          Rank: <div className='text-white'>1,092,364</div>
+          Rank: <div className='text-white'>{leetcode.rank.toLocaleString()}</div>
         </div>
       </div>
     </div>

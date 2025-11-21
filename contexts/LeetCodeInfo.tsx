@@ -2,6 +2,9 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
+// ---------------------------
+// 1️⃣ Interfaces
+// ---------------------------
 interface ContextApiProps {
   children: React.ReactNode;
 }
@@ -11,20 +14,44 @@ interface Leetcode {
   medium: number;
   hard: number;
   rank: number;
+
+  language1: string;
+  count1: number;
+
+  language2: string;
+  count2: number;
+
+  language3: string;
+  count3: number;
 }
 
-// ⭐ Default value so context never becomes undefined
+// ---------------------------
+// 2️⃣ Default Values
+// ---------------------------
 const defaultValue: Leetcode = {
   easy: 0,
   medium: 0,
   hard: 0,
   rank: 0,
+
+  language1: "JavaScript",
+  count1: 104,
+
+  language2: "C++",
+  count2: 41,
+
+  language3: "TypeScript",
+  count3: 11,
 };
 
-// ⭐ Export context
-export const LeetcodeContextApi = createContext<Leetcode>(defaultValue);
+// ---------------------------
+// 3️⃣ Create Context
+// ---------------------------
+export const LeetcodeContext = createContext<Leetcode>(defaultValue);
 
-// ⭐ Provider Component
+// ---------------------------
+// 4️⃣ Provider Component
+// ---------------------------
 export const LeetCodeInfo: React.FC<ContextApiProps> = ({ children }) => {
   const [problems, setProblems] = useState<Leetcode>(defaultValue);
 
@@ -33,13 +60,14 @@ export const LeetCodeInfo: React.FC<ContextApiProps> = ({ children }) => {
       try {
         const res = await fetch("/api/v1/leetCode");
         const data = await res.json();
-
-        setProblems({
+        // Update only the fetched fields
+        setProblems((prev) => ({
+          ...prev,
           easy: data.leetcode.easy,
           medium: data.leetcode.medium,
           hard: data.leetcode.hard,
           rank: data.leetcode.rank,
-        });
+        }));
       } catch (error) {
         console.log("Fetch error:", error);
       }
@@ -49,12 +77,13 @@ export const LeetCodeInfo: React.FC<ContextApiProps> = ({ children }) => {
   }, []);
 
   return (
-    <LeetcodeContextApi.Provider value={problems}>
+    <LeetcodeContext.Provider value={problems}>
       {children}
-    </LeetcodeContextApi.Provider>
+    </LeetcodeContext.Provider>
   );
 };
 
-export const useLeetCode = () => {
-  return useContext(LeetcodeContextApi);
-};
+// ---------------------------
+// 5️⃣ Custom Hook
+// ---------------------------
+export const useLeetCode = () => useContext(LeetcodeContext);
