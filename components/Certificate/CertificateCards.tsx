@@ -1,6 +1,5 @@
-import { Certificate } from '@/models/Certifiate'
+import {  CertificateInterface } from '@/models/Certifiate'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const months = [
@@ -18,9 +17,9 @@ const months = [
     "Dec"
 ]
 
-const CertificateCards :React.FC<Certificate> = ({title , completionDate, description, imageLink, link, skills}) => {
+const CertificateCards :React.FC<CertificateInterface> = ({title , completionDate, description, imageLink, link, skills}) => {
   return (
-    <div className="flex flex-row p-2 font-mono w-full  items-center gap-5 h-full">
+    <div className="flex flex-row p-2 font-mono w-full  items-center gap-5 h-full border-b-white/15 my-2 border-b">
       {/* left part  */}
       <div className="flex flex-col gap-3 w-full">
         <div className="font-bold text-2xl">{title}</div>
@@ -46,7 +45,7 @@ const CertificateCards :React.FC<Certificate> = ({title , completionDate, descri
             ))}
           </div>
         </div>
-        <a href={link} className='py-1 px-3 bg-[#e0e0e0] w-full text-center text-black rounded-full shadow-2xs shadow-white/15 my-5'>Certificate Link</a>
+        <a href={link} target='_blank' className='py-1 px-3 bg-[#e0e0e0] w-full text-center text-black rounded-full shadow-2xs shadow-white/15 my-5'>Certificate Link</a>
       </div>
 
       {/* iamge part */}
