@@ -30,11 +30,6 @@ const QuickInfoCards = () => {
       joinedDate: 1747506600000,
     },
   });
-  const [leetcode , setLeetcode] = useState<LeetCodeInterface>({
-    easy:0,
-    medium:0,
-    hard:0
-  })
 
   useEffect(() => {
     const getVisitors = async () => {

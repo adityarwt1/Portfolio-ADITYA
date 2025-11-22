@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
-const page = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const Page = async () => {
+  await new Promise((res) => setTimeout(() => res(res), 2000));
 
-export default page
+  return <div>Certificate page</div>;
+};
+
+export default Page;
