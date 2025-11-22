@@ -127,7 +127,7 @@ const QuickInfoCards = () => {
   }, []);
 
   return (
-    <div className="flex gap-2 wrap-break-word">
+    <div className="flex gap-2 wrap-break-word flex-wrap">
       <Visitor visitors={visitors} />
       <InterViews interviewes={interviewes} />
 
