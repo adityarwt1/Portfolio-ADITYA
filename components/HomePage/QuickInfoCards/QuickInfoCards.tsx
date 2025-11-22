@@ -14,11 +14,7 @@ interface CurrentCompany {
     company: { _id: string; companyName: string; joinedDate: number }
 }
 
-interface LeetCodeInterface{
-  easy:number
-  medium:number
-  hard:number
-}
+
 const QuickInfoCards = () => {
   const [visitors, setVisitors] = useState<number>(0);
   const [interviewes, setInterviews] = useState<number>(0);

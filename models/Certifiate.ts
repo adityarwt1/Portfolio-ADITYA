@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-interface Certificate{
+export interface Certificate{
      title:string
      completionDate: number
      description:string
