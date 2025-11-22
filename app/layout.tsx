@@ -37,24 +37,28 @@ export const metadata: Metadata = {
   assets: "/images",
   authors: {
     name: "Aditya Rawat",
-    url: "https://adityarawatportfolio.vercel.app/",
+    url: "https://www.linkedin.com/in/aditya-rawat-3862182b0/",
+    
   },
   openGraph: {
     images: ["/images/linkedin.png"],
   },
-  category:"tech",
-  creator:"Aditya Rawat",
-  icons:"/images/profilephoto.jpg",
-  generator:"Aditya Rawat",
-  keywords:['aditya rawat' , "portfolio aditya rawat", "aditya rawat portfolio" , "https://adityarawatportfolio.vercel.app/" ],
-  manifest:"/manifest.json",
-  publisher:"Aditya Rawat",
-  robots:{
-    index:true,
-    follow:true
-  }
-
-
+  category: "tech",
+  creator: "Aditya Rawat",
+  icons: "/images/profilephoto.jpg",
+  generator: "Aditya Rawat",
+  keywords: [
+    "aditya rawat",
+    "portfolio aditya rawat",
+    "aditya rawat portfolio",
+    "https://adityarawatportfolio.vercel.app/",
+  ],
+  manifest: "/manifest.json",
+  publisher: "Aditya Rawat",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 export default function RootLayout({
   children,
