@@ -6,6 +6,7 @@ interface Certificate{
      description:string
     skills:string[]
     link:string
+    imageLink:string
 }
 
 const CertificateSchema:Schema<Certificate> = new Schema({
@@ -22,6 +23,9 @@ const CertificateSchema:Schema<Certificate> = new Schema({
         type:String
     }],
     link:{
+        type:String
+    },
+    imageLink:{
         type:String
     }
 })
