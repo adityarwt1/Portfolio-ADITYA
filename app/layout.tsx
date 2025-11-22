@@ -13,15 +13,49 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
+
 export const metadata: Metadata = {
   title: "Aditya Rawat - Portfolio",
+  description:
+    "I’m a true tech enthusiast who began coding back in class 9. I’ve always been fascinated by how real products work behind the scenes. At 17, I even built and cracked my first startup. Today, I’m focused on sharpening my skills further and building production-ready solutions with a strong passion for learning and improving every day.”",
+  abstract:
+    "This page showcases all my certificates, their details, and verification links.",
+  appleWebApp: {
+    capable: true,
+    startupImage: "/vercel.svg",
+    statusBarStyle: "black",
+    title: "Aditya Rawat",
+  },
+  applicationName: "Aditya Rawat - Portfolio",
+  alternates: {
+    canonical: "https://adityarawatportfolio.vercel.app/",
+    languages: {
+      "eng-US": "https://adityarawatportfolio.vercel.app/",
+    },
+  },
+  assets: "/images",
+  authors: {
+    name: "Aditya Rawat",
+    url: "https://adityarawatportfolio.vercel.app/",
+  },
   openGraph: {
     images: ["/images/linkedin.png"],
   },
-  description:
-    "I’m a true tech enthusiast who began coding back in class 9. I’ve always been fascinated by how real products work behind the scenes. At 17, I even built and cracked my first startup. Today, I’m focused on sharpening my skills further and building production-ready solutions with a strong passion for learning and improving every day.”",
-};
+  category:"tech",
+  creator:"Aditya Rawat",
+  icons:"/images/profilephoto.jpg",
+  generator:"Aditya Rawat",
+  keywords:['aditya rawat' , "portfolio aditya rawat", "aditya rawat portfolio" , "https://adityarawatportfolio.vercel.app/" ],
+  manifest:"/manifest.json",
+  publisher:"Aditya Rawat",
+  robots:{
+    index:true,
+    follow:true
+  }
 
+
+};
 export default function RootLayout({
   children,
 }: Readonly<{

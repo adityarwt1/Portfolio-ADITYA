@@ -1,4 +1,3 @@
-"use server"
 import CertificateCards from "@/components/Certificate/CertificateCards";
 import { mongoconnect } from "@/lib/mongodb";
 import Certificate, { CertificateInterface } from "@/models/Certifiate";
@@ -21,28 +20,28 @@ const Page = async () => {
 
 export default Page;
 
-export async function generateMetadata():Promise<Metadata> {
-  await mongoconnect()
-  const certificate = await Certificate.findOne({
-    _id: "6921e3770b211e7b119e943d",
-  }).lean<CertificateInterface>();
 
-  return {
-    title: `Certificate - ${certificate?.title}`,
-    description:certificate?.description,
-    openGraph:{
-      title:certificate?.title,
-      description:certificate?.description,
-      images:[{
-        url:certificate?.imageLink as string
-      }]
+export const metadata: Metadata = {
+  title: "Certficate - Aditya Rawat",
+  abstract:
+    "This page showcases all my certificates, their details, and verification links.",
+  appleWebApp: {
+    capable: true,
+    startupImage: "/vercel.svg",
+    statusBarStyle: "black",
+    title: "Aditya Rawat",
+  },
+  applicationName: "Aditya Rawat - Portfolio",
+  alternates: {
+    canonical: "https://adityarawatportfolio.vercel.app/",
+    languages: {
+      "eng-US": "https://adityarawatportfolio.vercel.app/",
     },
-    twitter:{
-      card:"summary_large_image",
-      title:certificate?.title,
-      description:certificate?.description,
-      images:[certificate?.imageLink as string]
-    },
-  }
-
-}
+  },
+  assets: "/images",
+  authors: {
+    name: "Aditya Rawat",
+    url: "https://adityarawatportfolio.vercel.app/",
+  },
+  
+};
