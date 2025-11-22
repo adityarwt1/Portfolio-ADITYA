@@ -19,7 +19,7 @@ const months = [
 
 const CertificateCards :React.FC<CertificateInterface> = ({title , completionDate, description, imageLink, link, skills}) => {
   return (
-    <div className="flex flex-row p-2 font-mono w-full  items-center gap-5 h-full border-b-white/15 my-2 border-b">
+    <div className="flex flex-col md:flex-row p-2 font-mono w-full  items-center gap-5 h-full border-b-white/15 my-2 border-b">
       {/* left part  */}
       <div className="flex flex-col gap-3 w-full">
         <div className="font-bold text-2xl">{title}</div>
