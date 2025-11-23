@@ -5,13 +5,14 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink } from "@/compon
 import Link from "next/link";
 
 export default function Navbarv2() {
+  
   return (
-    <div className="w-full flex justify-between items-center px-4 py-2">
+    <div className="w-full flex justify-between items-center px-4 py-2 bg-zinc-950">
       {/* LEFT SIDE */}
-      <div className=" font-bold tracking-wide text-2xl">ADITYA</div>
+      <div className=" font-bold tracking-wide text-2xl text-white">ADITYA</div>
 
       {/* RIGHT SIDE (your whole menu here) */}
-      <NavigationMenu>
+      <NavigationMenu className="text-white">
 
         {/* home navigation */}
         <NavigationMenuItem style={{listStyle:"none"}}>

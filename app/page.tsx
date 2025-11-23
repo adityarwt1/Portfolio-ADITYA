@@ -22,7 +22,7 @@ const HomePage = async () => {
   );
   const leetcode = await LeetCode.findOne()
   return (
-    <div className="w-full min-h-screen p-5 flex flex-col gap-4 ">
+    <div className="w-full min-h-screen p-5 flex flex-col gap-4 bg-zinc-950 ">
       <div className="flex flex-wrap gap-1">
         <Visitors visitors={visitors} />
         <InterViews interviewes={interviews} />
