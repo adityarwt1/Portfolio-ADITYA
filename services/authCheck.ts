@@ -1,8 +1,9 @@
 "use server"
+import { Role } from '@/interface/Role';
 import jwt from 'jsonwebtoken'
 import { cookies } from 'next/headers'
 
-export const checkAdmin = async ():Promise<{role:"user"| "admin" , isAdmin:boolean}>=>{
+export const checkAdmin = async ():Promise<Role>=>{
     try {
         
         const token = (await cookies()).get("portfoliotoken")?.value;

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -11,10 +11,25 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { ToggleTheme } from "../ToggleTheme";
+import { checkAdmin } from "@/services/authCheck";
+import { Role } from "@/interface/Role";
 
 export default function Navbarv2() {
   const [open, setOpen] = React.useState(false);
+  const [userInfo , setUserInfo] = useState<Role>()
 
+  // achieving the info
+  useEffect(()=>{
+      const getUserInfo = async ()=>{
+        try {
+            const userdata= await checkAdmin()
+            setUserInfo(userdata)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      getUserInfo()
+  },[])
   return (
     <div className="w-full flex justify-between items-center px-4 py-3 border-b">
       {/* LEFT SIDE */}
@@ -72,13 +87,13 @@ export default function Navbarv2() {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
+           { userInfo?.isAdmin ? <NavigationMenuItem>
               <NavigationMenuLink asChild>
                 <Link href="/admin" className="text-sm">
                   Admin
                 </Link>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem>:null}
           </NavigationMenuList>
         </NavigationMenu>
 

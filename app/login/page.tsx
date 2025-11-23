@@ -1,92 +1,135 @@
-"use client"
+"use client";
+
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const LogiPage:React.FC = ()=>{
-    // state declaration
-    const [email, setEmail] = useState<string>()
-    const [password, setPassword] = useState<string | undefined>()
-    const [error, setError] = useState<string>()
-    const [loading, setLoading] = useState<boolean>(false)
-    const [isHid, setIsHide]  = useState<boolean>(true)
-    const router = useRouter()
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-    //handle submit button
-    const handleSubmit = async (e:React.FormEvent)=>{
-        e.preventDefault()
-        
-        if(!password || !email || typeof(password) == "undefined"){
-            setError("Email or password must be required.")
-            return
-        }
-        setLoading(true)
-        try {
-            const response = await fetch("/api/v1/login",{
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body:JSON.stringify({email, password})
-            })
-            const data = await response.json()
+const LoginPage: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isHid, setIsHide] = useState<boolean>(true);
 
-            if(data.success){
-              router.refresh()
-                router.replace('/admin')
-            }
-            else if(data.error){
-                setError(data.error)
-            }
-        } catch (error) {
-            setError((error as Error).message)
-        }
-        finally{
-            setLoading(false)
-        }
+  const router = useRouter();
+
+  // Submit handler
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!password || !email) {
+      setError("Email or password must be required.");
+      return;
     }
 
-    // handle hide and show password
-    const handleHidePassword = ()=>{
-        try {
-            setIsHide(!isHid)
-        } catch  {
-            setError("Failed to show or hide password.")
-        }
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        router.refresh();
+        router.replace("/admin");
+      } else if (data.error) {
+        setError(data.error);
+      }
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
     }
-    return (
-      <div className="flex w-full h-screen justify-center items-center">
-        <div className="p-10 border flex flex-col rounded-lg shadow-white shadow-2xs border-white/15">
-          <div className="text-6xl font-bold">ADMIN LOGIN</div>
-          <form
-            onSubmit={handleSubmit}
-            className="flex  flex-col justify-center items-center"
-          >
-            <input
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              className="border p-2 rounded-sm shadow-2xs shadow-white px-4 my-2 w-full"
-              placeholder="email..."
-            />
-            <div className="w-full flex h-fit ">
-              <input
-                type={isHid ? "password" : "text"}
-                onChange={(e) => setPassword(e.target.value)}
-                className="border-b border-t border-l p-2 sm-full shadow-2xs shadow-white focus:outline-none w-[90%]" 
-                placeholder="password..."
+  };
+
+  return (
+    <div className="w-full h-screen flex justify-center items-center p-4">
+      <Card className="w-full max-w-sm shadow-lg border border-white/10">
+        <CardHeader>
+          <CardTitle className="text-2xl">Admin Login</CardTitle>
+          <CardDescription>
+            Enter your credentials to access the admin dashboard.
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            {/* EMAIL */}
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                placeholder="admin@example.com"
+                required
+                onChange={(e :React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               />
-              <button type="button"  onClick={handleHidePassword} className="w-[10%] border-t border-b border-r shadow-2xs shadow-white pr-2">{isHid ? "Show" :"Hide"}</button>
             </div>
-            <button
-              type="submit"
-              className="bg-white text-black w-full px-20 py-1 text-xl my-2 hover:opacity-80 cursor-pointer shadow-2xs shadow-white *:"
-              disabled={loading}
-            >
-             {loading ?"Submit...":"Submit"}
-            </button>
+
+            {/* PASSWORD */}
+            <div className="grid gap-2">
+              <Label htmlFor="password">Password</Label>
+              <div className="flex w-full">
+                <Input
+                  id="password"
+                  type={isHid ? "password" : "text"}
+                  required
+                  value={password}
+                  onChange={(e:React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                  className="rounded-r-none"
+                />
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="rounded-l-none"
+                  onClick={() => setIsHide(!isHid)}
+                >
+                  {isHid ? "Show" : "Hide"}
+                </Button>
+              </div>
+            </div>
           </form>
-          {error ? <div className="bg-red-500/90 text-shadow-2xs text-shadow-black p-4 rounded-md">{error}</div> : ""}
-        </div>
-      </div>
-    );
-}
-export default LogiPage
+
+          {error && (
+            <div className="mt-3 bg-red-500/80 text-white p-2 rounded-md text-sm">
+              {error}
+            </div>
+          )}
+        </CardContent>
+
+        <CardFooter className="flex flex-col gap-3">
+          {/* Submit Button */}
+          <Button
+            type="submit"
+            onClick={handleSubmit}
+            disabled={loading}
+            className="w-full"
+          >
+            {loading ? "Logging in..." : "Login"}
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
+  );
+};
+
+export default LoginPage;
