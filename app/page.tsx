@@ -10,6 +10,7 @@ import Leetcode from "@/components/HomePage/QuickInfoCards/Leetcode";
 import LeetCode from "@/models/Leetcode";
 import CurrentStack from "@/components/HomePage/QuickInfoCards/CurrentStack";
 import Expert from "@/components/HomePage/QuickInfoCards/Experienced";
+import { Badge } from "@/components/ui/badge";
 
 const HomePage = async () => {
   await mongoconnect()
@@ -25,10 +26,15 @@ const HomePage = async () => {
       <div className="flex flex-wrap gap-1">
         <Visitors visitors={visitors} />
         <InterViews interviewes={interviews} />
-        <CurrentCompany company={company} success={true}/>
-        <Leetcode key={leetcode?._id} easy={leetcode.easy} medium={leetcode.medium} hard={leetcode.hard} />
-        <CurrentStack/>
-        <Expert/>
+        <CurrentCompany company={company} success={true} />
+        <Leetcode
+          key={leetcode?._id}
+          easy={leetcode.easy}
+          medium={leetcode.medium}
+          hard={leetcode.hard}
+        />
+        <CurrentStack />
+        <Expert />
       </div>
     </div>
   );

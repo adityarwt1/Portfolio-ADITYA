@@ -1,5 +1,5 @@
 "use client"
-import { useLeetCode } from '@/contexts/LeetCodeInfo'
+import { Badge } from '@/components/ui/badge'
 import React from 'react'
 
 interface LeetcodePorps{
@@ -9,12 +9,10 @@ interface LeetcodePorps{
 }
 const Leetcode:React.FC <LeetcodePorps> = ({easy, medium, hard}) => {
   return (
-    
-      <div className="border h-fit w-fit py-1 px-3 rounded-full bg-[#e0e0e0]/95 text-black font-mono no-word-wrap text-nowrap">
-        LeetCode: Easy:{easy}, Medium:{medium} Hard:{hard}
-      </div>
-    
-  )
+    <Badge>
+      LeetCode: Easy:{easy}, Medium:{medium} Hard:{hard}
+    </Badge>
+  );
 }
 
 export default Leetcode

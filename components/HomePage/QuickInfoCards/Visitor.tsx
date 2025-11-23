@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge';
 import React from 'react'
 
 interface PageProps {
@@ -6,9 +7,8 @@ interface PageProps {
 
 const Visitor:React.FC<PageProps> = ({visitors}) => {
   return (
-    <div className="border w-fit py-1 px-3 rounded-full bg-[#e0e0e0]/95 text-black font-mono text-nowrap h-fit">
-      Visitor:{visitors}
-    </div>
+    
+    <Badge>Visitors: {visitors}</Badge>
   );
 }
 

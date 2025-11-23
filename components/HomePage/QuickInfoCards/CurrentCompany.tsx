@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import React from "react";
 
 interface CurrentCompanyProps {
@@ -31,9 +32,9 @@ const CurrentCompany: React.FC<CurrentCompanyProps> = ({ company }) => {
  };
 
   return (
-    <div className="border w-fit py-1 px-3 rounded-full bg-[#e0e0e0]/95 text-black font-mono text-nowrap h-fit">
+    <Badge>
       Company: {company.companyName} ({experience()})
-    </div>
+    </Badge>
   );
 };
 
