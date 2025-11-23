@@ -20,6 +20,72 @@ export default function Navbarv2() {
       {/* LEFT SIDE */}
       <div className="font-bold tracking-wide text-2xl">ADITYA</div>
 
+      {/* DESKTOP NAV */}
+      <div className="hidden md:flex items-center gap-6">
+        <NavigationMenu>
+          <NavigationMenuList className="flex gap-6">
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/" className="text-sm">
+                  Home
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/experience" className="text-sm">
+                  Experience
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/projects" className="text-sm">
+                  Projects
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/certificate" className="text-sm">
+                  Certificates
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/components" className="text-sm">
+                  Components
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/about" className="text-sm">
+                  About
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/admin" className="text-sm">
+                  Admin
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        {/* THEME BUTTON */}
+        <ToggleTheme />
+      </div>
+
       {/* MOBILE NAV */}
       <div className="flex md:hidden items-center gap-4">
         <ToggleTheme />
@@ -61,18 +127,6 @@ export default function Navbarv2() {
             </nav>
           </SheetContent>
         </Sheet>
-      </div>
-
-      {/* DESKTOP NAV (unchanged) */}
-      <div className="hidden md:flex items-center gap-6">
-        {/* navigation menu here */}
-        <NavigationMenu>
-          <NavigationMenuList className="flex gap-6">
-            {/* Desktop links... */}
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <ToggleTheme />
       </div>
     </div>
   );
