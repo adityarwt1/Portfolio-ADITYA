@@ -10,7 +10,6 @@ import Leetcode from "@/components/HomePage/QuickInfoCards/Leetcode";
 import LeetCode from "@/models/Leetcode";
 import CurrentStack from "@/components/HomePage/QuickInfoCards/CurrentStack";
 import Expert from "@/components/HomePage/QuickInfoCards/Experienced";
-import { Badge } from "@/components/ui/badge";
 
 const HomePage = async () => {
   await mongoconnect()
@@ -22,7 +21,7 @@ const HomePage = async () => {
   );
   const leetcode = await LeetCode.findOne()
   return (
-    <div className="w-full min-h-screen p-5 flex flex-col gap-4 bg-zinc-950 ">
+    <div className="w-full min-h-screen p-5 flex flex-col gap-4 ">
       <div className="flex flex-wrap gap-1">
         <Visitors visitors={visitors} />
         <InterViews interviewes={interviews} />

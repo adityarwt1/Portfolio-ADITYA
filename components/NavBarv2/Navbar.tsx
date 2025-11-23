@@ -23,7 +23,7 @@ export default function Navbarv2() {
             {/* HOME */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/" className="text-sm hover:underline">
+                <Link href="/" className="text-sm ">
                   Home
                 </Link>
               </NavigationMenuLink>
@@ -32,7 +32,7 @@ export default function Navbarv2() {
             {/* EXPERIENCE */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/experience" className="text-sm hover:underline">
+                <Link href="/experience" className="text-sm ">
                   Experience
                 </Link>
               </NavigationMenuLink>
@@ -41,7 +41,7 @@ export default function Navbarv2() {
             {/* PROJECTS */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/projects" className="text-sm hover:underline">
+                <Link href="/projects" className="text-sm ">
                   Projects
                 </Link>
               </NavigationMenuLink>
@@ -50,7 +50,7 @@ export default function Navbarv2() {
             {/* CERTIFICATES */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/certificate" className="text-sm hover:underline">
+                <Link href="/certificate" className="text-sm ">
                   Certificates
                 </Link>
               </NavigationMenuLink>
@@ -59,7 +59,7 @@ export default function Navbarv2() {
             {/* COMPONENTS */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/components" className="text-sm hover:underline">
+                <Link href="/components" className="text-sm ">
                   Components
                 </Link>
               </NavigationMenuLink>
@@ -68,16 +68,16 @@ export default function Navbarv2() {
             {/* ABOUT */}
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href="/about" className="text-sm hover:underline">
+                <Link href="/about" className="text-sm ">
                   About
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
 
             {/* ADMIN */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/admin" className="text-sm hover:underline">
+            <NavigationMenuItem >
+              <NavigationMenuLink asChild >
+                <Link href="/admin" className="text-sm ">
                   Admin
                 </Link>
               </NavigationMenuLink>
