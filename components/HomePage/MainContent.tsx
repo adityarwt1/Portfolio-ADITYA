@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const MainContent = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center h-full p-20 gap-2">
+    <div className="w-full flex flex-col justify-center items-center h-full md:p-20 gap-2">
       <div className="text-4xl font-bold uppercase">Aditya Rawat</div>
       <div>
         I&apos;m a true tech enthusiast who began coding back in class 9. I&apos;ve always
