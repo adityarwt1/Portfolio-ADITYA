@@ -11,7 +11,7 @@ export default function AboutMe() {
         <h2 className="text-2xl font-semibold">About Me</h2>
 
         {/* Story */}
-        <div className="space-y-4 text-white/80 leading-relaxed">
+        <div className="space-y-4 text-black/80 dark:text-white/80 leading-relaxed">
           <p>
             I am Aditya Rawat, and I am from Sidhi in Madhya Pradesh. I come
             from a small family of four members. During my childhood, I used to
