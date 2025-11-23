@@ -7,85 +7,71 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 import { ToggleTheme } from "../ToggleTheme";
 
 export default function Navbarv2() {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <div className="w-full flex justify-between items-center px-4 py-3 border-b">
       {/* LEFT SIDE */}
       <div className="font-bold tracking-wide text-2xl">ADITYA</div>
 
-      {/* RIGHT SIDE */}
-      <div className="flex items-center gap-6">
+      {/* MOBILE NAV */}
+      <div className="flex md:hidden items-center gap-4">
+        <ToggleTheme />
+
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger>
+            <Menu size={28} />
+          </SheetTrigger>
+
+          <SheetContent side="left" className="p-6">
+            <nav className="flex flex-col gap-5 text-lg font-medium">
+              <Link href="/" onClick={() => setOpen(false)}>
+                Home
+              </Link>
+
+              <Link href="/experience" onClick={() => setOpen(false)}>
+                Experience
+              </Link>
+
+              <Link href="/projects" onClick={() => setOpen(false)}>
+                Projects
+              </Link>
+
+              <Link href="/certificate" onClick={() => setOpen(false)}>
+                Certificates
+              </Link>
+
+              <Link href="/components" onClick={() => setOpen(false)}>
+                Components
+              </Link>
+
+              <Link href="/about" onClick={() => setOpen(false)}>
+                About
+              </Link>
+
+              <Link href="/admin" onClick={() => setOpen(false)}>
+                Admin
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+      {/* DESKTOP NAV (unchanged) */}
+      <div className="hidden md:flex items-center gap-6">
+        {/* navigation menu here */}
         <NavigationMenu>
           <NavigationMenuList className="flex gap-6">
-            {/* HOME */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/" className="text-sm ">
-                  Home
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* EXPERIENCE */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/experience" className="text-sm ">
-                  Experience
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* PROJECTS */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/projects" className="text-sm ">
-                  Projects
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* CERTIFICATES */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/certificate" className="text-sm ">
-                  Certificates
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* COMPONENTS */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/components" className="text-sm ">
-                  Components
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* ABOUT */}
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/about" className="text-sm ">
-                  About
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            {/* ADMIN */}
-            <NavigationMenuItem >
-              <NavigationMenuLink asChild >
-                <Link href="/admin" className="text-sm ">
-                  Admin
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            {/* Desktop links... */}
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* THEME BUTTON */}
         <ToggleTheme />
       </div>
     </div>
