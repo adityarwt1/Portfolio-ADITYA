@@ -80,7 +80,7 @@ export default function RootLayout({
         enableSystem
         disableTransitionOnChange
         >
-          <NavBarv2 />
+          <NavBarv2  />
           <div className="h-[90%]">{children}</div>
         </ThemeProvider>
       </body>
