@@ -10,6 +10,7 @@ export interface ExperienceInterface{
     techStack:string[]
     techAchives:string[]
     companyLogo:string
+    active:boolean
 }
 
 const ExperienceSchema:Schema<ExperienceInterface> = new Schema({
@@ -33,6 +34,9 @@ const ExperienceSchema:Schema<ExperienceInterface> = new Schema({
     }],
     companyLogo:{
         type:String
+    },
+    active:{
+        type:Boolean
     }
 })
 
