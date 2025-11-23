@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: ["/images/linkedin.png"],
+    
   },
   category: "tech",
   creator: "Aditya Rawat",
@@ -59,6 +60,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  twitter:{
+    images:['/images/linkedin.png']
+  }
 };
 export default function RootLayout({
   children,
