@@ -8,7 +8,6 @@ const Page = async () => {
   await mongoconnect()
   const certificates = await Certificate.find({}).lean<CertificateInterface[]>() 
  
-  console.log(certificates)
   return (
     <div className="flex flex-col p-4 ">
       {certificates.map((certificate :CertificateInterface)=> (
