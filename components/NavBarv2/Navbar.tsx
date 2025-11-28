@@ -13,27 +13,37 @@ import Link from "next/link";
 import { ToggleTheme } from "../ToggleTheme";
 import { checkAdmin } from "@/services/authCheck";
 import { Role } from "@/interface/Role";
+import { usePathname } from "next/navigation";
 
 export default function Navbarv2() {
   const [open, setOpen] = React.useState(false);
   const [userInfo , setUserInfo] = useState<Role>()
+const pathName = usePathname();
+const [isComponentPage , setIscomponentPage] = useState<boolean>(false);
 
-  // achieving the info
-  useEffect(()=>{
-      const getUserInfo = async ()=>{
-        try {
-            const userdata= await checkAdmin()
-            setUserInfo(userdata)
-        } catch (error) {
-          console.log(error)
-        }
-      }
-      getUserInfo()
-  },[])
+
+useEffect(() => {
+  // Check which page we are on
+  const setPathName = ()=>{
+    const isComponentPage = pathName  === "/components" ?true : false
+    setIscomponentPage(isComponentPage)
+  }
+  // Fetch user info
+  const getUserInfo = async () => {
+    try {
+      const userdata = await checkAdmin();
+      setUserInfo(userdata);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  getUserInfo();
+  setPathName()
+}, [pathName]); 
   return (
     <div className="w-full flex justify-between items-center px-4 py-3 border-b">
       {/* LEFT SIDE */}
-      <div className="font-bold tracking-wide text-2xl">ADITYA</div>
+      <div className="font-bold tracking-wide text-2xl">{isComponentPage ? "Adi-Asset":"ADITYA"}</div>
 
       {/* DESKTOP NAV */}
       <div className="hidden md:flex items-center gap-6">
