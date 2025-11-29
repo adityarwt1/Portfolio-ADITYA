@@ -23,7 +23,7 @@ const HomePage = async () => {
   const leetcode = await LeetCode.findOne()
   return (
     <div
-      className="w-full min-h-screen p-5 flex flex-col gap-4bg-white dark:bg-black bg-[radial-gradient(circle,rgba(0,0,0,0.15)_1px,transparent_1px)] dark:bg-[radial-gradient(circle,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[20px_20px]"
+      className="w-full min-h-screen p-5 flex flex-col gap-4 bg-white dark:bg-black bg-[radial-gradient(circle,rgba(0,0,0,0.15)_1px,transparent_1px)] dark:bg-[radial-gradient(circle,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[20px_20px]"
     >
       {/* TOP BADGES */}
       <div className="flex flex-wrap gap-1 justify-center">
