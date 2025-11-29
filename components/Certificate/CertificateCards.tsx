@@ -56,7 +56,7 @@ const CertificateCards :React.FC<CertificateInterface> = ({title , completionDat
             width={600}
             height={600}
             alt={title}
-            className="rounded-lg"
+            className="rounded-lg border-2"
           />
         </a>
       </div>
