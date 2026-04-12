@@ -22,11 +22,8 @@ export default function AboutMe() {
           </p>
 
           <p>
-            One day, I asked my father, “Who created Microsoft Windows?” He
-            replied, “Microsoft software engineers.” From that day onward, I
-            started dreaming of working at Microsoft. In 8th grade, I started
-            planning how I could actually get into coding. I wanted to build
-            software like Windows, but since I didn’t have a powerful PC, I
+            In 8th grade, I started planning how I could actually get into coding.
+            I wanted to build software, but since I didn’t have a powerful PC, I
             began learning web development instead.
           </p>
 
@@ -52,8 +49,7 @@ export default function AboutMe() {
           <p>
             Later, the company offered me a full-time position at TripxPay. Now,
             I am improving myself through DSA, and I have already solved 150+
-            problems. My goal is to join my first dream company—the place where
-            my dream started: Microsoft.
+            problems.
           </p>
         </div>
 
