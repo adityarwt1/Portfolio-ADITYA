@@ -81,13 +81,13 @@ useEffect(() => {
               </NavigationMenuLink>
             </NavigationMenuItem>
 
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuLink asChild>
                 <Link href="/components" className="text-sm">
                   Components
                 </Link>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild>

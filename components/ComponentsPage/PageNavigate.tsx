@@ -9,11 +9,12 @@ interface PageNavigate {
 }
 const PageNavigate: React.FC<PageNavigate> = ({ slug, title }) => {
   return (
-    <NavigationMenuItem>
-      <NavigationMenuLink asChild>
-        <Link href={"/components/" + slug}>{title}</Link>
-      </NavigationMenuLink>
-    </NavigationMenuItem>
+    // <NavigationMenuItem>
+    //   <NavigationMenuLink asChild>
+    //     <Link href={"/components/" + slug}>{title}</Link>
+    //   </NavigationMenuLink>
+    // </NavigationMenuItem>
+    <div>Hidden</div>
   );
 };
 
