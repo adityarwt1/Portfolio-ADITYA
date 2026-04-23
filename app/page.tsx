@@ -44,13 +44,13 @@ const HomePage = async () => {
       {/* MAIN CONTENT */}
       <div className="flex-1 flex flex-col min-h-0 justify-center">
         {/* Center Content Area */}
-        <div className="flex-1 flex items-center justify-center px-3 md:px-6 lg:px-12 py-6 md:py-8 overflow-y-auto">
+        <div className="flex-1 flex items-center justify-center px-3 md:px-6 lg:px-12 py-6 md:py-8 overflow-y-auto h-fit">
           <MainContent />
         </div>
 
         {/* Skills Section */}
         <div className="shrink-0 flex justify-start items-center py-4 md:py-5 border-t border-[#e0e0e0]/5 bg-zinc-950/30 backdrop-blur-sm overflow-x-auto w-screen">
-          <div className="flex items-center gap-0.5 md:gap-1 px-2 md:px-4 whitespace-nowrap">\n            {skills.map((skill, index) => (
+          <div className="flex items-center gap-0.5 md:gap-1 px-2 md:px-4 whitespace-nowrap">            {skills.map((skill, index) => (
               <div
                 key={index}
                 className="relative shrink-0 group"
@@ -59,7 +59,7 @@ const HomePage = async () => {
                   zIndex: skills.length - index,
                 }}
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center p-1.5 md:p-2 lg:p-3 bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-lg border border-[#e0e0e0]/10 hover:border-[#e0e0e0]/30 hover:shadow-xl hover:shadow-[#e0e0e0]/20 transition-all duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center p-1.5 md:p-2 lg:p-3 bg-linear-to-br from-zinc-800 to-zinc-900 shadow-lg border border-[#e0e0e0]/10 hover:border-[#e0e0e0]/30 hover:shadow-xl hover:shadow-[#e0e0e0]/20 transition-all duration-300">
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={skill.imageUrl}

@@ -4,14 +4,14 @@ import Link from "next/link";
 
 const MainContent = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center md:justify-start">
+    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center md:justify-start h-fit">
       {/* Left Section - Text Content */}
       <div className="flex-1 flex flex-col gap-3 md:gap-4">
         <div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#e0e0e0] leading-tight">
             Aditya Rawat
           </h1>
-          <div className="h-1 w-16 bg-gradient-to-r from-zinc-600 to-zinc-400 mt-2 rounded"></div>
+          <div className="h-1 w-16 bg-linear-to-r from-zinc-600 to-zinc-400 mt-2 rounded"></div>
         </div>
         
         <p className="text-sm md:text-base lg:text-lg leading-relaxed text-[#e0e0e0]/80">
