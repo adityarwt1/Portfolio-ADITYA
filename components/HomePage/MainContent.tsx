@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const MainContent = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center md:justify-start h-fit">
+    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center md:justify-start ">
       {/* Left Section - Text Content */}
       <div className="flex-1 flex flex-col gap-3 md:gap-4">
         <div>
