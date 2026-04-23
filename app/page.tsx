@@ -42,15 +42,15 @@ const HomePage = async () => {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col min-h-0">
         {/* Center Content Area */}
-        <div className="flex-1 flex px-3 md:px-6 lg:px-12 py-4 md:py-6 overflow-y-auto">
+        <div className="flex px-3 md:px-6 lg:px-12 py-4 md:py-6 overflow-y-auto">
           <MainContent />
         </div>
 
         {/* Skills Section */}
-        <div className="shrink-0 flex justify-center items-center py-3 md:py-4 border-t border-[#e0e0e0]/5 bg-zinc-950/30 backdrop-blur-sm">
-          <div className="flex items-center justify-center gap-0.5 md:gap-1">
+        <div className="shrink-0 flex justify-start items-center py-3 md:py-4 border-t border-[#e0e0e0]/5 bg-zinc-950/30 backdrop-blur-sm overflow-x-auto w-screen">
+          <div className="flex items-center gap-0.5 md:gap-1 px-2 md:px-4 whitespace-nowrap">
             {skills.map((skill, index) => (
               <div
                 key={index}
@@ -60,7 +60,7 @@ const HomePage = async () => {
                   zIndex: skills.length - index,
                 }}
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center p-1.5 md:p-2 lg:p-3 bg-linear-to-br from-zinc-800 to-zinc-900 shadow-lg border border-[#e0e0e0]/10 hover:border-[#e0e0e0]/30 hover:shadow-xl hover:shadow-[#e0e0e0]/20 transition-all duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full flex items-center justify-center p-1.5 md:p-2 lg:p-3 bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-lg border border-[#e0e0e0]/10 hover:border-[#e0e0e0]/30 hover:shadow-xl hover:shadow-[#e0e0e0]/20 transition-all duration-300">
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={skill.imageUrl}
@@ -71,7 +71,7 @@ const HomePage = async () => {
                   </div>
                 </div>
                 {/* Tooltip on hover */}
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-zinc-800/90 text-[#e0e0e0] text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-zinc-800/90 text-[#e0e0e0] text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                   {skill.name}
                 </div>
               </div>

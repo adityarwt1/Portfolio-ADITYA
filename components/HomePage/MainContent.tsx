@@ -1,18 +1,17 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import ProfileCard from "./ProfileCard";
 
 const MainContent = () => {
   return (
-    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12 items-center md:items-center justify-between h-fixed">
+    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center md:justify-start">
       {/* Left Section - Text Content */}
       <div className="flex-1 flex flex-col gap-3 md:gap-4">
         <div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-[#e0e0e0] leading-tight">
             Aditya Rawat
           </h1>
-          <div className="h-1 w-16 bg-linear-to-r from-zinc-500 to-[#e0e0e0] mt-2 rounded"></div>
+          <div className="h-1 w-16 bg-gradient-to-r from-zinc-600 to-zinc-400 mt-2 rounded"></div>
         </div>
         
         <p className="text-sm md:text-base lg:text-lg leading-relaxed text-[#e0e0e0]/80">
@@ -28,23 +27,18 @@ const MainContent = () => {
         <div className="flex gap-3 mt-2">
           <Button 
             asChild 
-            className="bg-zinc-600 hover:bg-zinc-700 text-white border border-[#e0e0e0] text-sm md:text-base py-2 px-4 h-auto rounded-lg"
+            className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600 text-sm md:text-base py-2 px-4 h-auto rounded-lg"
           >
             <Link href="/experience">Experience</Link>
           </Button>
           <Button 
             asChild
-            className="bg-zinc-600 hover:bg-zinc-700 text-white border border-[#e0e0e0] text-sm md:text-base py-2 px-4 h-auto rounded-lg"
+            className="bg-zinc-700 hover:bg-zinc-600 text-white border border-zinc-600 text-sm md:text-base py-2 px-4 h-auto rounded-lg"
           >
             <Link href="/projects">Projects</Link>
           </Button>
         </div>
       </div>
-
-      {/* Right Section - Profile Card */}
-      {/* <div className="flex-shrink-0">
-        <ProfileCard />
-      </div> */}
     </div>
   );
 };
