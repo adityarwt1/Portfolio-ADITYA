@@ -17,8 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Aditya Rawat - Portfolio",
-  description:
-    "I’m a true tech enthusiast who began coding back in class 9. I’ve always been fascinated by how real products work behind the scenes. At 17, I even built and cracked my first startup. Today, I’m focused on sharpening my skills further and building production-ready solutions with a strong passion for learning and improving every day.”",
+  description:"Full-stack developer with 3+ years of experience building scalable web applications. Specialized in Node.js backend development and Java enterprise solutions, with proven expertise in designing RESTful APIs and microservices architecture. Joined a production startup at 17, handling everything from system design to deployment. Passionate about writing clean, maintainable code and solving complex technical challenges.", 
   abstract:
     "This page showcases all my certificates, their details, and verification links.",
   appleWebApp: {
