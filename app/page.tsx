@@ -10,7 +10,7 @@ import Leetcode from "@/components/HomePage/QuickInfoCards/Leetcode";
 import LeetCode from "@/models/Leetcode";
 import CurrentStack from "@/components/HomePage/QuickInfoCards/CurrentStack";
 import Expert from "@/components/HomePage/QuickInfoCards/Experienced";
-import MainContent from "@/components/HomePage/MainContent";
+import MainContent from "@/components/HomePage/MainContent";  
 import { skills } from "@/constants/Skills";
 import Image from "next/image";
 
@@ -49,7 +49,7 @@ const HomePage = async () => {
         </div>
 
         {/* Skills Section */}
-        <div className="shrink-0 flex justify-start items-center py-4 md:py-5 border-t border-[#e0e0e0]/5 bg-zinc-950/30 backdrop-blur-sm overflow-x-auto w-screen">
+        <div className="shrink-0 flex justify-start items-center py-4 md:py-5 border-t border-[#e0e0e0]/5 bg-zinc-950/30 backdrop-blur-sm overflow-x-auto w-screen z-10">
           <div className="flex items-center gap-0.5 md:gap-1 px-2 md:px-4 whitespace-nowrap">            {skills.map((skill, index) => (
               <div
                 key={index}

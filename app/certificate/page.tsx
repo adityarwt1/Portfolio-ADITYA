@@ -26,8 +26,7 @@ export const metadata: Metadata = {
     "This page showcases all my certificates, their details, and verification links.",
   appleWebApp: {
     capable: true,
-    startupImage: "/vercel.svg",
-    statusBarStyle: "black",
+    statusBarStyle: "black-translucent",
     title: "Aditya Rawat",
   },
   applicationName: "Aditya Rawat - Portfolio",

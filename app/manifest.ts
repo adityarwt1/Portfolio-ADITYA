@@ -3,16 +3,30 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Aditya Rawat - Portfolio",
-    short_name: "aditya portfolio",
+    short_name: "Aditya Rawat",
     description:
-      "Aditya rawat mern stack portfolio, Experience, certificate, projects included.",
+      "Portfolio of Aditya Rawat — MERN stack developer. Experience, certificates, and projects.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
+    background_color: "#09090b",
     theme_color: "#0066ff",
-    scope:"portfolio",
+    scope: "/",
     orientation: "portrait-primary",
-    categories: ["portfolio" , "personal information" , "aditya rawat potfolio"],
-    lang: "en-IN", // English (India)
+    categories: ["portfolio", "personal"],
+    lang: "en-IN",
+    icons: [
+      {
+        src: "/images/profilephoto.jpg",
+        sizes: "512x512",
+        type: "image/jpeg",
+        purpose: "any",
+      },
+      {
+        src: "/images/profilephoto.jpg",
+        sizes: "512x512",
+        type: "image/jpeg",
+        purpose: "maskable",
+      },
+    ],
   };
 }
